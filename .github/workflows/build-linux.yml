@@ -1,0 +1,36 @@
+name: Build Linux AppImage
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install system deps
+        run: |
+          sudo apt update
+          sudo apt install -y libfuse2
+
+      - name: Install npm deps
+        run: npm install
+
+      - name: Build AppImage
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: calculator-appimage
+          path: dist/*.AppImage
