@@ -15,7 +15,6 @@
     "productName": "Calculator",
     "linux": {
       "target": "AppImage"
-    },
-    "publish": "never"
+    }
   }
 }
