@@ -11,12 +11,11 @@
     "electron-builder": "^24.13.3"
   },
   "build": {
-  "appId": "com.savelov.calculator",
-  "productName": "Calculator",
-  "linux": {
-    "target": "AppImage"
-  },
-  "publish": "never"
-}
+    "appId": "com.savelov.calculator",
+    "productName": "Calculator",
+    "linux": {
+      "target": "AppImage"
+    },
+    "publish": "never"
   }
 }
